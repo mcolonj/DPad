@@ -14,6 +14,16 @@
 #import "SneakyJoystickSkinnedBase.h"
 
 
+//JOYSTICK AND BUTTON CONSTANTS
+#define JOYSTICK_PAD @"joystickpad.png"
+#define JOYSTICK_BUTTON @"joystickbutton.png"
+#define JUMP_BUTTON @"jumpbutton.png"
+#define JUMP_BUTTON_PRESSED @"jumpbuton_pressed.png"
+#define ATTACK_BUTTON @"firebutton.png"
+#define ATTACK_BUTTON_PRESSED @"firebutton_pressed.png"
+
+
+
 @interface MyJoystick : CCLayer {
   
   SneakyJoystick *leftJoystick;

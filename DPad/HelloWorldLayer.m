@@ -36,14 +36,17 @@
 	// Apple recommends to re-assign "self" with the "super" return value
 	if( (self=[super init])) {
 		
-    CCSprite *bg = [CCSprite spriteWithFile:@"default_landscape.png"];
+    // add background image
+    CCSprite *bg = [CCSprite spriteWithFile:BACKGROUND_IMAGE];
     [bg setAnchorPoint:ccp(0,0)];
     [bg setPosition:ccp(0,0)];
     [self addChild:bg];
     
+    //initialize dpad joystick and buttons
     dpad = [[MyJoystick alloc] init];
     [self addChild:dpad z:10];
     
+    //schedule the update method
     [self scheduleUpdate];
 	}
 	return self;
@@ -62,22 +65,26 @@
 
 -(void)update:(ccTime)delta {
   
+  //check the joystick's x movement
   if ( dpad.leftJoystick.velocity.x > 0 ) {
     CCLOG(@"Moving joystick right by %f", dpad.leftJoystick.velocity.x);
   } else if ( dpad.leftJoystick.velocity.x < 0 ) {
     CCLOG(@"Moving joystick left by %f", dpad.leftJoystick.velocity.x);
   }
   
+  //check the joystick's y movement
   if ( dpad.leftJoystick.velocity.y > 0 ) {
     CCLOG(@"Moving joystick up by %f", dpad.leftJoystick.velocity.y);
   } else if ( dpad.leftJoystick.velocity.y < 0 ) {
     CCLOG(@"Moving joystick down by %f", dpad.leftJoystick.velocity.y);
   }
   
+  //check to see if the jump button is pressed
   if ( dpad.jumpButton.active ) {
     CCLOG(@"Jump button pressed");
   }
   
+  //check to see if the attack button is pressed
   if ( dpad.attackButton.active ) {
     CCLOG(@"Attack button pressed");
   }

@@ -11,6 +11,10 @@
 #import "cocos2d.h"
 #import "MyJoystick.h"
 
+
+#define BACKGROUND_IMAGE @"default_landscape.png"
+
+
 // HelloWorldLayer
 @interface HelloWorldLayer : CCLayer
 {
