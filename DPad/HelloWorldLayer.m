@@ -46,6 +46,8 @@
     dpad = [[MyJoystick alloc] init];
     [self addChild:dpad z:10];
     
+    freeToJump = freeToAttack = YES;
+    
     //schedule the update method
     [self scheduleUpdate];
 	}
@@ -79,13 +81,17 @@
     CCLOG(@"Moving joystick down by %f", dpad.leftJoystick.velocity.y);
   }
   
-  //check to see if the jump button is pressed
-  if ( dpad.jumpButton.active ) {
+  if ( dpad.jumpButton.value == 0 ) freeToJump = YES;
+  
+  if ( dpad.jumpButton.value == 1 && freeToJump ) {
+    freeToJump = NO;
     CCLOG(@"Jump button pressed");
   }
   
-  //check to see if the attack button is pressed
-  if ( dpad.attackButton.active ) {
+  if ( dpad.attackButton.value == 0 ) freeToAttack = YES;
+  
+  if ( dpad.attackButton.value == 1 && freeToAttack ) {
+    freeToAttack = NO;
     CCLOG(@"Attack button pressed");
   }
   

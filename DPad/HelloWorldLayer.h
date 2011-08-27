@@ -19,6 +19,7 @@
 @interface HelloWorldLayer : CCLayer
 {
   MyJoystick *dpad;
+  BOOL freeToAttack, freeToJump;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
